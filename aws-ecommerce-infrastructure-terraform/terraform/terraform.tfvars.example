@@ -1,0 +1,15 @@
+aws_region   = "ap-south-1"
+project_name = "aws-ecommerce"
+environment  = "dev"
+domain_name  = "your-domain.com"
+
+vpc_cidr             = "10.0.0.0/16"
+public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs = ["10.0.11.0/24", "10.0.12.0/24"]
+single_nat_gateway   = false
+
+container_image = "hashicorp/http-echo:1.0"
+
+# Worker (Kafka consumer). Replace with your real image and set the command to [].
+worker_container_image   = "hashicorp/http-echo:1.0"
+worker_container_command = ["-listen=:3001", "-text=worker"]
